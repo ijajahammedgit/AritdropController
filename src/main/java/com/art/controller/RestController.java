@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,7 @@ import com.art.entity.AdminUser;
 import com.art.repository.AdminUserRepository;
 
 @org.springframework.web.bind.annotation.RestController
+@CrossOrigin
 public class RestController {
 
 	@Autowired
@@ -21,6 +23,7 @@ public class RestController {
 
 	@RequestMapping(method = RequestMethod.POST, path = "/register", consumes = "application/json")
 	public String registerUser(@RequestBody AdminUserDto adminUserDto) {
+	
 		AdminUser adminUser = new AdminUser();
 		adminUser.setUserId(adminUserDto.getUserId());
 		adminUser.setFirstName(adminUserDto.getFirstName());
